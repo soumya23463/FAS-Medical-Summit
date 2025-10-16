@@ -12,3 +12,42 @@
  Tags: one-column, custom-menu, featured-images, theme-options, translation-ready
  GitHub Theme URI: understrap/understrap-child
 */
+
+/* FAS Medical Summit Header Custom Styles */
+#main-nav.navbar-light {
+    background-color: #E8F4F8 !important;
+}
+
+
+#main-nav .navbar-nav .nav-link {
+    color: #110244 !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+}
+
+#main-nav .navbar-nav .nav-link:hover {
+    color: #1B8FC1 !important;
+}
+
+#main-nav .btn-primary {
+    background-color: #1B8FC1;
+    border-color: #1B8FC1;
+    font-weight: 600;
+}
+
+#main-nav .btn-primary:hover {
+    background-color: #1576A1;
+    border-color: #1576A1;
+}
+
+@media (max-width: 991px) {
+    #main-nav .navbar-brand {
+        padding-left: 0;
+    }
+
+    #main-nav .btn-primary {
+        margin-bottom: 1rem;
+    }
+}
