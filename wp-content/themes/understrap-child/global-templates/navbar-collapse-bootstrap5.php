@@ -22,34 +22,34 @@ $container = get_theme_mod('understrap_container_type');
 
 
     <?php if ('container' === $container) : ?>
-    <div class="container-fluid px-4">
+    <div class="container-fluid d-flex px-5">
         <?php endif; ?>
 
         <?php get_template_part('global-templates/navbar-branding'); ?>
 
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse justify-content-center align-self-start pt-2" id="navbarNavDropdown">
             <!-- The WordPress Menu goes here -->
             <?php
-			wp_nav_menu(
-				array(
-					'theme_location'  => 'primary',
-					'container'       => false,
-					'menu_class'      => 'navbar-nav mx-auto',
-					'fallback_cb'     => '',
-					'menu_id'         => 'main-menu',
-					'depth'           => 2,
-					'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
-				)
-			);
-			?>
+            wp_nav_menu(
+                array(
+                    'theme_location'  => 'primary',
+                    'container'       => false,
+                    'menu_class'      => 'navbar-nav mx-auto',
+                    'fallback_cb'     => '',
+                    'menu_id'         => 'main-menu',
+                    'depth'           => 2,
+                    'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
+                )
+            );
+            ?>
         </div>
 
-        <div class="d-flex align-items-center">
-            <a href="<?php echo esc_url(home_url('/contact-us')); ?>" class="btn btn-primary rounded px-4 py-2 mr-3">
+        <div class="d-flex align-items-center ml-auto">
+            <a href="<?php echo esc_url(home_url('/contact-us')); ?>" class="btn btn-primary rounded ">
                 Contact Us
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false"
+            <button class="navbar-toggler mx-4" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                 aria-label="<?php esc_attr_e('Toggle navigation', 'understrap'); ?>">
                 <span class="navbar-toggler-icon"></span>
             </button>
