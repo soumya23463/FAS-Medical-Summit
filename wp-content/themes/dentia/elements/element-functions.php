@@ -103,7 +103,7 @@ function dentia_get_post_type_options($pt_supports=[]){
     $result_some = [];
     $result_any = [];
     if (!is_array($post_types))
-        return $result;
+        return [];
     foreach ($post_types as $post_type) {
         if (!$post_type instanceof WP_Post_Type)
             continue;
