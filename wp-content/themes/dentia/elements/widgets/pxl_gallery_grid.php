@@ -1,0 +1,312 @@
+<?php
+pxl_add_custom_widget(
+    array(
+        'name' => 'pxl_gallery_grid',
+        'title' => esc_html__('BR Gallery Grid', 'dentia'),
+        'icon' => 'eicon-gallery-justified',
+        'categories' => array('pxltheme-core'),
+        'scripts' => [
+            'imagesloaded',
+            'isotope',
+            'pxl-post-grid',
+        ],
+        'params' => array(
+            'sections' => array(
+                array(
+                    'name' => 'section_content',
+                    'label' => esc_html__('Content', 'dentia'),
+                    'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+                    'controls' => array(
+                        array(
+                            'name' => 'list_name',
+                            'label' => esc_html__('List Name Fillter', 'dentia'),
+                            'type' => \Elementor\Controls_Manager::REPEATER,
+                            'default' => [],
+                            'controls' => array(
+                                array(
+                                    'name' => 'title_fillter',
+                                    'label' => esc_html__('Title', 'dentia'),
+                                    'type' => \Elementor\Controls_Manager::TEXT,
+                                    'label_block' => true,
+                                ),
+                            ),
+                            'title_field' => '{{{ title_fillter }}}',
+                        ),
+                        array(
+                            'name' => 'gallery_grid',
+                            'label' => esc_html__('List', 'dentia'),
+                            'type' => \Elementor\Controls_Manager::REPEATER,
+                            'default' => [],
+                            'controls' => array(
+                                array(
+                                    'name' => 'cat',
+                                    'label' => esc_html__('Categories Fillter', 'dentia'),
+                                    'type' => \Elementor\Controls_Manager::TEXT,
+                                ),
+                                array(
+                                    'name' => 'image',
+                                    'label' => esc_html__('Image', 'dentia' ),
+                                    'type' => \Elementor\Controls_Manager::MEDIA,
+                                ),
+                                array(
+                                    'name' => 'title_view',
+                                    'label' => esc_html__('Title', 'dentia'),
+                                    'type' => \Elementor\Controls_Manager::TEXT,
+                                    'label_block' => true,
+                                ),
+                            ),
+                            'title_field' => '{{{ title_view }}}',
+                        ),
+                    ),
+                ),
+                array(
+                    'name' => 'section_settings',
+                    'label' => esc_html__('Grid', 'dentia' ),
+                    'tab' => \Elementor\Controls_Manager::TAB_SETTINGS,
+                    'controls' => array(
+                        array(
+                            'name' => 'data_layout',
+                            'label' => esc_html__('Layout Mode', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::SELECT,
+                            'default' => 'masonry',
+                            'options' => [
+                                'masonry' => esc_html__('Masonry', 'dentia' ),
+                                'fitRows' => esc_html__('fitRows', 'dentia' ),
+                            ],
+                            
+                        ),
+                        array(
+                            'name' => 'show_fillter',
+                            'label' => esc_html__('Show Fillter', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::SWITCHER,
+                            'default' => 'false',
+                        ),
+                        array(
+                            'name' => 'img_size',
+                            'label' => esc_html__('Image Size Default', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::TEXT,
+                            'description' => 'Enter image size (Example: "thumbnail", "medium", "large", "full" or other sizes defined by theme). Alternatively enter size in pixels (Example: 200x100 (Width x Height).',
+                        ),
+                        array(
+                            'name' => 'img_size_popup',
+                            'label' => esc_html__('Image Size Popup', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::TEXT,
+                            'description' => 'Enter image size (Example: "thumbnail", "medium", "large", "full" or other sizes defined by theme). Alternatively enter size in pixels (Example: 200x100 (Width x Height).',
+                        ),
+                        array(
+                            'name' => 'col_xs',
+                            'label' => esc_html__('Columns XS Devices', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::SELECT,
+                            'default' => '1',
+                            'options' => [
+                                '1' => '1',
+                                '2' => '2',
+                                '3' => '3',
+                                '4' => '4',
+                                '6' => '6',
+                            ],
+                        ),
+                        array(
+                            'name' => 'col_sm',
+                            'label' => esc_html__('Columns SM Devices', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::SELECT,
+                            'default' => '2',
+                            'options' => [
+                                '1' => '1',
+                                '2' => '2',
+                                '3' => '3',
+                                '4' => '4',
+                                '6' => '6',
+                            ],
+                        ),
+                        array(
+                            'name' => 'col_md',
+                            'label' => esc_html__('Columns MD Devices', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::SELECT,
+                            'default' => '3',
+                            'options' => [
+                                '1' => '1',
+                                '2' => '2',
+                                '3' => '3',
+                                '4' => '4',
+                                '6' => '6',
+                            ],
+                        ),
+                        array(
+                            'name' => 'col_lg',
+                            'label' => esc_html__('Columns LG Devices', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::SELECT,
+                            'default' => '4',
+                            'options' => [
+                                '1' => '1',
+                                '2' => '2',
+                                '3' => '3',
+                                '4' => '4',
+                                '6' => '6',
+                            ],
+                        ),
+                        array(
+                            'name' => 'col_xl',
+                            'label' => esc_html__('Columns XL Devices', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::SELECT,
+                            'default' => '4',
+                            'options' => [
+                                '1' => '1',
+                                '2' => '2',
+                                '3' => '3',
+                                '4' => '4',
+                                '5' => '5',
+                                '6' => '6',
+                            ],
+                        ),
+                        array(
+                            'name' => 'grid_masonry',
+                            'label' => esc_html__('Grid Masonry', 'dentia'),
+                            'type' => \Elementor\Controls_Manager::REPEATER,
+                            'controls' => array(
+                                array(
+                                    'name' => 'col_xs_m',
+                                    'label' => esc_html__('Columns XS Devices', 'dentia' ),
+                                    'type' => \Elementor\Controls_Manager::SELECT,
+                                    'default' => '1',
+                                    'options' => [
+                                        '1' => '1',
+                                        '1.5' => '2/3',
+                                        '2' => '2',
+                                        '3' => '3',
+                                        '4' => '4',
+                                        '6' => '6',
+                                    ],
+                                ),
+                                array(
+                                    'name' => 'col_sm_m',
+                                    'label' => esc_html__('Columns SM Devices', 'dentia' ),
+                                    'type' => \Elementor\Controls_Manager::SELECT,
+                                    'default' => '2',
+                                    'options' => [
+                                        '1' => '1',
+                                        '1.5' => '2/3',
+                                        '2' => '2',
+                                        '3' => '3',
+                                        '4' => '4',
+                                        '6' => '6',
+                                    ],
+                                ),
+                                array(
+                                    'name' => 'col_md_m',
+                                    'label' => esc_html__('Columns MD Devices', 'dentia' ),
+                                    'type' => \Elementor\Controls_Manager::SELECT,
+                                    'default' => '3',
+                                    'options' => [
+                                        '1' => '1',
+                                        '1.5' => '2/3',
+                                        '2' => '2',
+                                        '3' => '3',
+                                        '4' => '4',
+                                        '6' => '6',
+                                    ],
+                                ),
+                                array(
+                                    'name' => 'col_lg_m',
+                                    'label' => esc_html__('Columns LG Devices', 'dentia' ),
+                                    'type' => \Elementor\Controls_Manager::SELECT,
+                                    'default' => '4',
+                                    'options' => [
+                                        '1' => '1',
+                                        '1.5' => '2/3',
+                                        '2' => '2',
+                                        '3' => '3',
+                                        '4' => '4',
+                                        '6' => '6',
+                                    ],
+                                ),
+                                array(
+                                    'name' => 'col_xl_m',
+                                    'label' => esc_html__('Columns XL Devices', 'dentia' ),
+                                    'type' => \Elementor\Controls_Manager::SELECT,
+                                    'default' => '4',
+                                    'options' => [
+                                        '1' => '1',
+                                        '1.5' => '2/3',
+                                        '2' => '2',
+                                        '3' => '3',
+                                        '4' => '4',
+                                        '6' => '6',
+                                    ],
+                                ),
+                                array(
+                                    'name' => 'img_size_m',
+                                    'label' => esc_html__('Image Size', 'dentia' ),
+                                    'type' => \Elementor\Controls_Manager::TEXT,
+                                    'description' => 'Enter image size (Example: "thumbnail", "medium", "large", "full" or other sizes defined by theme). Alternatively enter size in pixels (Default: 370x300 (Width x Height)).',
+                                ),
+                            ),
+                        ),
+                        array(
+                            'name' => 'item_spacer',
+                            'label' => esc_html__('Item Spacer', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::SLIDER,
+                            'control_type' => 'responsive',
+                            'description' => 'Default: 15',
+                            'range' => [
+                                'px' => [
+                                    'min' => 0,
+                                    'max' => 1000,
+                                ],
+                            ],
+                            'selectors' => [
+                                '{{WRAPPER}} .pxl-grid .pxl-grid-item' => 'padding:{{SIZE}}px;',
+                                '{{WRAPPER}} .pxl-grid .pxl-grid-masonry' => 'margin-left: -{{SIZE}}px;margin-right: -{{SIZE}}px;',
+                            ],
+                        ),
+                    ),
+                ),
+                array(
+                    'name' => 'section_style',
+                    'label' => esc_html__('Style', 'dentia' ),
+                    'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+                    'controls' => array(
+                        array(
+                            'name' => 'style',
+                            'label' => esc_html__('Type', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::SELECT,
+                            'default' => 'default',
+                            'options' => [
+                                'default' => esc_html__('Default', 'dentia' ),
+                            ],
+                        ),
+                        array(
+                            'name' => 'pxl_animate',
+                            'label' => esc_html__('Animate', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::SELECT,
+                            'options' => dentia_widget_animate(),
+                            'default' => '',
+                        ),
+                        array(
+                            'name' => 'pxl_animate_delay',
+                            'label' => esc_html__('Animate Delay', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::TEXT,
+                            'default' => '0',
+                            'description' => 'Enter number. Default 0ms',
+                        ),
+                        array(
+                            'name' => 'pxl_animate_inner',
+                            'label' => esc_html__('Animate Inner', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::SELECT,
+                            'options' => dentia_widget_animate(),
+                            'default' => '',
+                        ),
+                        array(
+                            'name' => 'pxl_animate_inner_delay',
+                            'label' => esc_html__('Animate Inner Delay', 'dentia' ),
+                            'type' => \Elementor\Controls_Manager::TEXT,
+                            'default' => '0',
+                            'description' => 'Enter number. Default 0ms',
+                        ),
+                    ),
+                ),
+            ),
+        ),
+    ),
+    dentia_get_class_widget_path()
+);
