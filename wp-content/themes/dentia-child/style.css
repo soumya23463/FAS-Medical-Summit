@@ -26,3 +26,10 @@ Text Domain: dentia-child
     padding: 0 15px;
   }
 }
+
+/* Force breadcrumb items to be visible */
+.pxl-breadcrumb li {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
