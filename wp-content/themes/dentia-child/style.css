@@ -14,3 +14,15 @@ Text Domain: dentia-child
 */
 
 /* Write your custom CSS below this line */
+
+/* Single Speciality Page Full Width */
+.single-speciality #pxl-wapper #pxl-main .container {
+  max-width: 100%;
+  padding: 0;
+}
+
+@media (max-width: 1024px) {
+  .single-speciality #pxl-wapper #pxl-main .container {
+    padding: 0 15px;
+  }
+}
