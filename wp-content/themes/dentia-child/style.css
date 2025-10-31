@@ -28,8 +28,25 @@ Text Domain: dentia-child
 }
 
 /* Force breadcrumb items to be visible */
-.pxl-breadcrumb li {
+/* .pxl-breadcrumb li {
   display: inline-block !important;
   visibility: visible !important;
   opacity: 1 !important;
+} */
+
+/* Related Posts Section */
+.related-posts-wrapper {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.related-posts-title {
+  text-align: left;
+  margin-bottom: 40px;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: -1.2%;
+  line-height: 150%;
+  color: #144366;
 }
