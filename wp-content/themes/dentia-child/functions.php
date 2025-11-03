@@ -53,15 +53,16 @@ function dentia_child_fix_breadcrumb_labels( $entries, $post ) {
         $entries[0]['url'] = home_url( '/specialities/' );
     }
 
+    // For Blog posts - replace all middle entries with single "Blogs" entry
+    // if ( $post_type === 'post' ) {
+
+    //     $entries[0]['label'] = 'Blogs';
+    //     $entries[0]['url'] = home_url( '/blogs/' );
+       
+    // }
+
     return $entries;
 }
 add_filter( 'dentia_breadcrumb_single', 'dentia_child_fix_breadcrumb_labels', 10, 2 );
 
-/**
- * Temporary debug function to check what's happening
- */
-add_action( 'wp_footer', function() {
-    if ( is_singular( 'speciality' ) ) {
-        echo '<!-- Filter is registered: ' . ( has_filter( 'dentia_breadcrumb_single' ) ? 'YES' : 'NO' ) . ' -->';
-    }
-} );
+
