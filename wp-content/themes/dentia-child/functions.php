@@ -66,3 +66,7 @@ function dentia_child_fix_breadcrumb_labels( $entries, $post ) {
 add_filter( 'dentia_breadcrumb_single', 'dentia_child_fix_breadcrumb_labels', 10, 2 );
 
 
+function show_current_year() {
+    return date('Y');
+}
+add_shortcode('current_year', 'show_current_year');
