@@ -136,3 +136,63 @@ body.single .pxl-breadcrumb li:not(:first-child):not(:last-child) {
   color: #fff !important;
 }
 
+/* Override parent theme checkbox styling */
+.pxl-contact-form .wpcf7-acceptance .wpcf7-list-item {
+  padding-left: 30px !important;
+}
+
+/* Hide the parent theme's before/after pseudo elements */
+.pxl-contact-form .wpcf7-acceptance .wpcf7-list-item .wpcf7-list-item-label:before,
+.pxl-contact-form .wpcf7-acceptance .wpcf7-list-item .wpcf7-list-item-label:after {
+  display: none !important;
+}
+
+/* Custom checkbox styling */
+.pxl-contact-form .wpcf7-acceptance .wpcf7-list-item input[type="checkbox"] {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  opacity: 1 !important;
+  width: 20px !important;
+  height: 20px !important;
+  border: 2px solid #007bff !important;
+  border-radius: 4px !important;
+  background-color: #fff !important;
+  cursor: pointer !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Checked state background */
+.pxl-contact-form .wpcf7-acceptance .wpcf7-list-item input[type="checkbox"]:checked {
+  background-color: #007bff !important;
+  border-color: #007bff !important;
+}
+
+/* Checkmark icon using CSS */
+.pxl-contact-form .wpcf7-acceptance .wpcf7-list-item input[type="checkbox"]:checked::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 6px !important;
+  top: 3px !important;
+  width: 5px !important;
+  height: 10px !important;
+  border: solid #fff !important;
+  border-width: 0 2px 2px 0 !important;
+  transform: rotate(45deg) !important;
+  opacity: 1 !important;
+  z-index: 10 !important;
+}
+
+/* Breadcrumb styling - all non-last items (links) */
+.pxl-breadcrumb li:not(:last-child) a.breadcrumb-entry {
+  color: #848484 !important;
+}
+
+/* Breadcrumb styling - last item (current page) */
+.pxl-breadcrumb li:last-child span.breadcrumb-entry {
+  color: #144366 !important;
+}
