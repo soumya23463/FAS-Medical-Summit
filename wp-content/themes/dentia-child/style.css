@@ -155,9 +155,9 @@ body.single .pxl-breadcrumb li:not(:first-child):not(:last-child) {
   opacity: 1 !important;
   width: 20px !important;
   height: 20px !important;
-  border: 2px solid #007bff !important;
+  border: 2px solid #848484 !important;
   border-radius: 4px !important;
-  background-color: #fff !important;
+  background-color: transparent !important;
   cursor: pointer !important;
   position: absolute !important;
   left: 0 !important;
@@ -207,4 +207,40 @@ body.single .pxl-breadcrumb li:not(:first-child):not(:last-child) {
 .pxl-breadcrumb li:last-child a.breadcrumb-entry,
 .pxl-breadcrumb li:last-child span.breadcrumb-entry {
   color: #144366 !important;
+}
+.contact2,
+.contact2 .pxl-contact-inner,
+.contact2 .input-filled input,
+.contact2 .input-filled select,
+.contact2 .input-filled textarea,
+.contact2 .pxl-item-region,
+.contact2 .pxl-item-region .pxl-select-higthlight {
+    background: transparent !important;
+    
+   
+}
+.contact2 .pxl-contact-inner .input-filled input, .pxl-contact-form1 .contact1 .pxl-contact-inner .input-filled textarea, .pxl-contact-form1 .contact1 .pxl-contact-inner .input-filled .pxl-select-higthlight {
+    border: 1px solid #5C6770 !important;
+    color: #5C6770 !important;
+}
+
+.pxl-contact-form1 .contact2 input, .pxl-contact-form1 .contact2 textarea, .pxl-contact-form1 .contact2 .pxl-select-higthlight {
+   border: 1px solid #5C6770 !important;
+    color: #5C6770 !important;
+}
+.contact1 .pxl-contact-inner .input-filled input, .pxl-contact-form1 .contact1 .pxl-contact-inner .input-filled textarea, .pxl-contact-form1 .contact1 .pxl-contact-inner .input-filled .pxl-select-higthlight {
+    border: 1px solid #C0C0C0 !important;
+    color: #5C6770 !important;
+}
+
+/* Blog Post Titles Styling - Regular blog grid items */
+h4.pxl-post--title.title-hover-line:not(.blog-post-title),
+h4.pxl-post--title.title-hover-line:not(.blog-post-title) a,
+.pxl-post--title.title-hover-line:not(.blog-post-title),
+.pxl-post--title.title-hover-line:not(.blog-post-title) a {
+  font-size: 28px !important;
+  font-weight: 600 !important;
+  font-family: 'Poppins', sans-serif !important;
+  padding-right: 15px !important;
+  line-height: 1.4 !important;
 }
