@@ -32,7 +32,11 @@ add_action( 'wp_enqueue_scripts', 'dentia_child_enqueue_styles' );
 
 /**
  * Fix breadcrumb labels for custom post types
+ * NOTE: Breadcrumb customization is now handled directly in parent theme's
+ * class-breadcrumb.php add_single_entry() function (lines 253-314)
+ * This filter is disabled to avoid conflicts.
  */
+/*
 function dentia_child_fix_breadcrumb_labels( $entries, $post ) {
     $post_type = get_post_type( $post );
 
@@ -53,17 +57,10 @@ function dentia_child_fix_breadcrumb_labels( $entries, $post ) {
         $entries[0]['url'] = home_url( '/specialities/' );
     }
 
-    // For Blog posts - replace all middle entries with single "Blogs" entry
-    // if ( $post_type === 'post' ) {
-
-    //     $entries[0]['label'] = 'Blogs';
-    //     $entries[0]['url'] = home_url( '/blogs/' );
-       
-    // }
-
     return $entries;
 }
 add_filter( 'dentia_breadcrumb_single', 'dentia_child_fix_breadcrumb_labels', 10, 2 );
+*/
 
 
 function show_current_year() {

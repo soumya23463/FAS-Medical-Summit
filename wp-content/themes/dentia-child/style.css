@@ -187,12 +187,24 @@ body.single .pxl-breadcrumb li:not(:first-child):not(:last-child) {
   z-index: 10 !important;
 }
 
-/* Breadcrumb styling - all non-last items (links) */
-.pxl-breadcrumb li:not(:last-child) a.breadcrumb-entry {
+/* Breadcrumb styling - Override parent theme colors */
+.pxl-breadcrumb {
   color: #848484 !important;
 }
 
-/* Breadcrumb styling - last item (current page) */
+/* Breadcrumb styling - all links (non-current pages) */
+.pxl-breadcrumb a,
+.pxl-breadcrumb a.breadcrumb-entry,
+.pxl-breadcrumb li:not(:last-child) a.breadcrumb-entry,
+.pxl-breadcrumb li:not(:last-child) span.breadcrumb-entry {
+  color: #848484 !important;
+}
+
+/* Breadcrumb styling - last item only (current page) */
+.pxl-breadcrumb li:last-child,
+.pxl-breadcrumb li:last-child a,
+.pxl-breadcrumb li:last-child span,
+.pxl-breadcrumb li:last-child a.breadcrumb-entry,
 .pxl-breadcrumb li:last-child span.breadcrumb-entry {
   color: #144366 !important;
 }

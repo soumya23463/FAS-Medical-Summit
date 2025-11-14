@@ -86,7 +86,7 @@ get_header();
             <!-- Blog Grid -->
             <div id="pxl_post_grid-blog" class="pxl-grid pxl-blog-grid pxl-blog-grid1" style="margin-top: 7%;">
                 <?php
-                echo do_shortcode('[ajax_load_more id="br_post_grid" post_type="post" posts_per_page="3" scroll="false" transition="fade" button_label="Load More" container_type="div" css_classes="pxl-grid-inner row" post__not_in="' . $random_post[0]->ID . '"]');
+                echo do_shortcode('[ajax_load_more id="br_post_grid" post_type="post" posts_per_page="6" scroll="false" transition="fade" button_label="Load More" container_type="div" css_classes="pxl-grid-inner row" post__not_in="' . $random_post[0]->ID . '"]');
                 ?>
             </div>
 

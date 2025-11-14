@@ -121,10 +121,19 @@ class CASE_Breadcrumb
                         $entry['label'] = $txt;
                     }
                     break;
-                
+
                 default:
                     $entry['label'] = wp_trim_words( $label, $this->args['entry_max_length'], $this->args['more_indicator'] );
                     break;
+            }
+        }
+
+        // Prevent duplicate entries
+        $entries_count = count( $this->entries );
+        if ( $entries_count > 0 ) {
+            $last_entry = $this->entries[ $entries_count - 1 ];
+            if ( $last_entry['label'] === $entry['label'] ) {
+                return; // Don't add duplicate
             }
         }
 
@@ -167,7 +176,8 @@ class CASE_Breadcrumb
 
             if ( is_home() || is_category() || is_tag() || is_singular( 'post' ) )
             {
-                $this->add_entry( get_the_title( $post_id ), get_permalink( $post_id ) );
+                // Use "Blog" as label instead of page title
+                $this->add_entry( 'Blog', get_permalink( $post_id ) );
             }
         }
 
@@ -234,11 +244,78 @@ class CASE_Breadcrumb
      * @since 1.0
      * @access public
      */
-    function add_single_entry()
-    {
-        global $post;
-        $this->add_single_ancestor_entry( $post );
+    // function add_single_entry()
+    // {
+    //     global $post;
+    //     $this->add_single_ancestor_entry( $post );
+    // }
+function add_single_entry() {
+    global $post;
+
+    $post_type = get_post_type($post);
+    
+    
+    $post_type_obj = get_post_type_object($post_type);
+
+    // Blog posts
+    if ($post_type === 'post') {
+        $blog_page_id = get_option('page_for_posts');
+        if ($blog_page_id) {
+            $this->add_entry('Blogs', get_permalink($blog_page_id));
+        } else {
+            $this->add_entry('Blogs', home_url('/blogs/'));
+        }
+        $this->add_entry(get_the_title($post->ID)); // Last one no link
+        return;
     }
+
+    // Specialities
+    if ($post_type === 'speciality') {
+        // Try to get archive link, fallback to home URL with path
+        $archive_link = get_post_type_archive_link('speciality');
+        if (!$archive_link) {
+            $archive_link = home_url('/specialities/');
+        }
+
+        // Add the Specialities breadcrumb with URL FIRST
+        $this->add_entry('Specialities', $archive_link);
+
+        // Then add the post title without URL
+        $this->add_entry(get_the_title($post->ID), '');
+        return;
+    }
+
+    // Services
+    if ($post_type === 'service') {
+        // Try to get archive link, fallback to home URL with path
+        $archive_link = get_post_type_archive_link('service');
+        if (!$archive_link) {
+            $archive_link = home_url('/all-services/');
+        }
+
+        // Add the Services breadcrumb with URL FIRST
+        $this->add_entry('Services', $archive_link);
+
+        // Then add the post title without URL
+        $this->add_entry(get_the_title($post->ID), '');
+        return;
+    }
+
+    // For other CPTs
+    if ($post_type_obj) {
+        if ($post_type_obj->has_archive) {
+            $this->add_entry($post_type_obj->labels->name, get_post_type_archive_link($post_type));
+        } else {
+            $this->add_entry($post_type_obj->labels->name);
+        }
+    }
+
+    $this->add_entry(get_the_title($post->ID)); // Last one only title
+}
+
+
+
+
 
 
     /**
@@ -519,14 +596,8 @@ class CASE_Breadcrumb
 
         if ( 'post' === $post_type )
         {
-            $cat_obj = current( get_the_category( $post ) );
-
-            if ( $cat_obj )
-            {
-                $this->add_category_ancestor_entry( $cat_obj );
-                $this->add_entry( get_the_title( $post ), get_permalink( $post->ID ) );
-            }
-
+            // Add post title - duplicate prevention is handled in add_entry()
+            $this->add_entry( get_the_title( $post ), get_permalink( $post->ID ) );
             return;
         }
 
