@@ -187,6 +187,31 @@ body.single .pxl-breadcrumb li:not(:first-child):not(:last-child) {
   z-index: 10 !important;
 }
 
+/* Page Title / Breadcrumb Section Background */
+#pxl-page-title-default {
+  background-image: url('/FAS-Medical-Summit/wp-content/uploads/2025/11/breadcrumb-background.png') !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  position: relative;
+}
+
+#pxl-page-title-default::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+     background: linear-gradient(-90deg, #00000000 0%, #EDF2FA 100%);
+  z-index: 0;
+}
+
+#pxl-page-title-default .container {
+  position: relative;
+  z-index: 1;
+}
+
 /* Breadcrumb styling - Override parent theme colors */
 .pxl-breadcrumb {
   color: #848484 !important;
@@ -208,29 +233,51 @@ body.single .pxl-breadcrumb li:not(:first-child):not(:last-child) {
 .pxl-breadcrumb li:last-child span.breadcrumb-entry {
   color: #144366 !important;
 }
-.contact2,
-.contact2 .pxl-contact-inner,
-.contact2 .input-filled input,
-.contact2 .input-filled select,
-.contact2 .input-filled textarea,
-.contact2 .pxl-item-region,
-.contact2 .pxl-item-region .pxl-select-higthlight {
-    background: transparent !important;
-    
-   
-}
-.contact2 .pxl-contact-inner .input-filled input, .pxl-contact-form1 .contact1 .pxl-contact-inner .input-filled textarea, .pxl-contact-form1 .contact1 .pxl-contact-inner .input-filled .pxl-select-higthlight {
-    border: 1px solid #5C6770 !important;
-    color: #5C6770 !important;
+/* Contact Form Unified Styling */
+/* Input Fields Background */
+.contact-form,
+.contact-form .pxl-contact-inner,
+.contact-form .input-filled input,
+.contact-form .input-filled select,
+.contact-form .input-filled textarea,
+.contact-form .pxl-item-region,
+.contact-form .pxl-item-region .pxl-select-higthlight {
+  background: transparent !important;
 }
 
-.pxl-contact-form1 .contact2 input, .pxl-contact-form1 .contact2 textarea, .pxl-contact-form1 .contact2 .pxl-select-higthlight {
-   border: 1px solid #5C6770 !important;
-    color: #5C6770 !important;
+/* Input Fields Border and Color */
+.contact-form .pxl-contact-inner .input-filled input,
+.contact-form .pxl-contact-inner .input-filled textarea,
+.contact-form .pxl-contact-inner .input-filled .pxl-select-higthlight,
+.contact-form input,
+.contact-form textarea,
+.contact-form .pxl-select-higthlight {
+  background: transparent !important;
+  border: 1px solid #5C6770 !important;
+  color: #5C6770 !important;
+  border-radius: 8px !important;
 }
-.contact1 .pxl-contact-inner .input-filled input, .pxl-contact-form1 .contact1 .pxl-contact-inner .input-filled textarea, .pxl-contact-form1 .contact1 .pxl-contact-inner .input-filled .pxl-select-higthlight {
-    border: 1px solid #C0C0C0 !important;
-    color: #5C6770 !important;
+
+/* Contact Form Button Styling */
+.contact-form .btn.btn-primary,
+.contact-form .ct-button .btn {
+  background-color: #2A7DBA !important;
+  color: #fff !important;
+  border: 1px solid #2A7DBA !important;
+  transition: all 220ms linear 0ms !important;
+  border-radius: 8px !important;
+}
+
+.contact-form .btn.btn-primary *,
+.contact-form .ct-button .btn * {
+  transition: all 220ms linear 0ms !important;
+}
+
+.contact-form .btn.btn-primary:hover,
+.contact-form .ct-button .btn:hover {
+  background-color: #fff !important;
+  color: #2A7DBA !important;
+  border: 1px solid #2A7DBA !important;
 }
 
 /* Blog Post Titles Styling - Regular blog grid items */
@@ -243,4 +290,64 @@ h4.pxl-post--title.title-hover-line:not(.blog-post-title) a,
   font-family: 'Poppins', sans-serif !important;
   padding-right: 15px !important;
   line-height: 1.4 !important;
+}
+
+/* Meta Box Styling */
+.approach .pxl-meta-inner .pxl-item-title,
+.approach .pxl-item-title {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  font-family: 'Poppins', sans-serif !important;
+  color: #144366 !important;
+  line-height: 1.5 !important;
+  text-transform: capitalize !important;
+}
+
+.approach .pxl-meta-inner .pxl-item--desc,
+.approach .pxl-item--desc {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  font-family: 'Inter', sans-serif !important;
+  color: #5C6770 !important;
+  line-height: 1.5 !important;
+  text-transform: capitalize !important;
+}
+.benifit .pxl-item--text .el-empty span,
+.benifit .pxl-item--text.el-empty span {
+  font-size: 20px !important;
+}
+
+/* Button Hover Color */
+.pxl-button .btn:hover,
+.pxl-button a.btn:hover {
+  color: #2A7DBA !important;
+  border-color: #2A7DBA !important;
+}
+
+.pxl-button .btn:hover .pxl--btn-text,
+.pxl-button a.btn:hover .pxl--btn-text,
+.pxl-button .btn:hover .pxl--text-wrap,
+.pxl-button a.btn:hover .pxl--text-wrap,
+.pxl-button .btn:hover .pxl--btn-text1,
+.pxl-button a.btn:hover .pxl--btn-text1,
+.pxl-button .btn:hover .pxl--btn-text2,
+.pxl-button a.btn:hover .pxl--btn-text2 {
+  color: #2A7DBA !important;
+}
+
+/* Services Button Hover Color */
+.services .pxl-button .btn:hover,
+.services .pxl-button a.btn:hover {
+  color: #fff !important;
+}
+
+.services .pxl-button .btn:hover .pxl--btn-text,
+.services .pxl-button a.btn:hover .pxl--btn-text,
+.services .pxl-button .btn:hover .pxl--text-wrap,
+.services .pxl-button a.btn:hover .pxl--text-wrap,
+.services .pxl-button .btn:hover .pxl--btn-text1,
+.services .pxl-button a.btn:hover .pxl--btn-text1,
+.services .pxl-button .btn:hover .pxl--btn-text2,
+.services .pxl-button a.btn:hover .pxl--btn-text2 {
+  color: #fff !important;
 }
