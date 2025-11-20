@@ -351,3 +351,36 @@ h4.pxl-post--title.title-hover-line:not(.blog-post-title) a,
 .services .pxl-button a.btn:hover .pxl--btn-text2 {
   color: #fff !important;
 }
+
+/* Meta Box Image Size Fix */
+.approach_icon .pxl-item--img,
+.approach_icon .pxl-item--img img {
+  width: 70px !important;
+  max-width: 70px !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+
+
+.testimonial-img .pxl-item--image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    object-position: top;
+}
+.image-box .elementor-image-box-img img {
+     width: 70px !important;
+  max-width: 70px !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+.services-solution img {
+    width: 70px !important;
+  max-width: 70px !important;
+  object-fit: cover !important;
+  display: block !important;
+
+}

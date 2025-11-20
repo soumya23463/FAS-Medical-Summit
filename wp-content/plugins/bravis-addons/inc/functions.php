@@ -330,28 +330,46 @@ if ( ! function_exists( 'pxl_resize' ) ) {
                 // no cache files - let's finally resize it
                 $img_editor = wp_get_image_editor( $actual_file_path );
 
-                if ( is_wp_error( $img_editor ) || is_wp_error( $img_editor->resize( $width, $height, $crop ) ) ) {
+                if ( is_wp_error( $img_editor ) ) {
+                    error_log( 'PXL_RESIZE ERROR - Image Editor: ' . $img_editor->get_error_message() );
+                    // Fallback to original image if resize fails
                     return array(
-                        'url' => '',
-                        'width' => '',
-                        'height' => '',
+                        'url' => $image_src[0],
+                        'width' => $image_src[1],
+                        'height' => $image_src[2],
+                    );
+                }
+
+                $resize_result = $img_editor->resize( $width, $height, $crop );
+                if ( is_wp_error( $resize_result ) ) {
+                    error_log( 'PXL_RESIZE ERROR - Resize: ' . $resize_result->get_error_message() );
+                    // Fallback to original image if resize fails
+                    return array(
+                        'url' => $image_src[0],
+                        'width' => $image_src[1],
+                        'height' => $image_src[2],
                     );
                 }
 
                 $new_img_path = $img_editor->generate_filename();
 
-                if ( is_wp_error( $img_editor->save( $new_img_path ) ) ) {
+                $save_result = $img_editor->save( $new_img_path );
+                if ( is_wp_error( $save_result ) ) {
+                    error_log( 'PXL_RESIZE ERROR - Save: ' . $save_result->get_error_message() );
+                    // Fallback to original image if save fails
                     return array(
-                        'url' => '',
-                        'width' => '',
-                        'height' => '',
+                        'url' => $image_src[0],
+                        'width' => $image_src[1],
+                        'height' => $image_src[2],
                     );
                 }
                 if ( ! is_string( $new_img_path ) ) {
+                    error_log( 'PXL_RESIZE ERROR - Invalid path type' );
+                    // Fallback to original image if path is invalid
                     return array(
-                        'url' => '',
-                        'width' => '',
-                        'height' => '',
+                        'url' => $image_src[0],
+                        'width' => $image_src[1],
+                        'height' => $image_src[2],
                     );
                 }
 
