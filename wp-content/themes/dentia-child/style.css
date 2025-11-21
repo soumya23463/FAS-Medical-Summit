@@ -189,7 +189,7 @@ body.single .pxl-breadcrumb li:not(:first-child):not(:last-child) {
 
 /* Page Title / Breadcrumb Section Background */
 #pxl-page-title-default {
-  background-image: url('/FAS-Medical-Summit/wp-content/uploads/2025/11/breadcrumb-background.png') !important;
+  background-image: url('/wp-content/uploads/2025/11/breadcrumb-background.png') !important;
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -383,4 +383,9 @@ h4.pxl-post--title.title-hover-line:not(.blog-post-title) a,
   object-fit: cover !important;
   display: block !important;
 
+}
+
+/* Menu Primary Link Padding */
+.fr-style-default .pxl-menu-primary > li > a {
+    padding-bottom: 10px !important;
 }
