@@ -14,6 +14,11 @@ Text Domain: dentia-child
 */
 
 /* Write your custom CSS below this line */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --input_placeholder_color: rgba(0, 0, 0, 0.4);
+}
 
 /* Single Speciality Page Full Width */
 .single-speciality #pxl-wapper #pxl-main .container {
@@ -26,6 +31,7 @@ Text Domain: dentia-child
     padding: 0 15px;
   }
 }
+
 body.single .pxl-breadcrumb li:not(:first-child):not(:last-child) {
   display: list-item !important;
 }
@@ -87,7 +93,8 @@ body.single .pxl-breadcrumb li:not(:first-child):not(:last-child) {
   color: #5C6770 !important;
   font-family: 'Inter', sans-serif;
 }
-.pxl-item--tags{
+
+.pxl-item--tags {
   margin-top: 16px;
 }
 
@@ -189,7 +196,7 @@ body.single .pxl-breadcrumb li:not(:first-child):not(:last-child) {
 
 /* Page Title / Breadcrumb Section Background */
 #pxl-page-title-default {
-  background-image: url('/wp-content/uploads/2025/11/breadcrumb-background.png') !important;
+  background-image: url('/wp-content/uploads/2025/12/hero-image.png') !important;
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -203,13 +210,18 @@ body.single .pxl-breadcrumb li:not(:first-child):not(:last-child) {
   left: 0;
   right: 0;
   bottom: 0;
-     background: linear-gradient(-90deg, #00000000 0%, #EDF2FA 100%);
+  background: linear-gradient(-90deg, #00000000 0%, #EDF2FA 100%);
   z-index: 0;
 }
 
 #pxl-page-title-default .container {
   position: relative;
   z-index: 1;
+}
+
+#pxl-page-title-default .pxl-page-title {
+  font-family: "Poppins", sans-serif;
+  color: #10244B;
 }
 
 /* Breadcrumb styling - Override parent theme colors */
@@ -233,6 +245,7 @@ body.single .pxl-breadcrumb li:not(:first-child):not(:last-child) {
 .pxl-breadcrumb li:last-child span.breadcrumb-entry {
   color: #144366 !important;
 }
+
 /* Contact Form Unified Styling */
 /* Input Fields Background */
 .contact-form,
@@ -254,9 +267,72 @@ body.single .pxl-breadcrumb li:not(:first-child):not(:last-child) {
 .contact-form .pxl-select-higthlight {
   background: transparent !important;
   border: 1px solid #5C6770 !important;
-  color: #5C6770 !important;
+  color: #1c1c1c !important;
   border-radius: 8px !important;
 }
+
+.pxl-item-message textarea {
+  height: auto !important;
+}
+
+.contact-form .pxl-select-higthlight.de_active {
+  color: var(--input_placeholder_color) !important;
+}
+
+.contact-form .pxl-contact-inner input::placeholder,
+.contact-form .pxl-contact-inner textarea::placeholder {
+  color: var(--input_placeholder_color) !important;
+}
+
+.contact-form .pxl-contact-inner input::-webkit-input-placeholder,
+.contact-form .pxl-contact-inner textarea::-webkit-input-placeholder {
+  color: var(--input_placeholder_color) !important;
+}
+
+.contact-form .pxl-contact-inner input::-moz-placeholder,
+.contact-form .pxl-contact-inner textarea::-moz-placeholder {
+  color: var(--input_placeholder_color) !important;
+}
+
+.contact-form .pxl-contact-inner input:-ms-input-placeholder,
+.contact-form .pxl-contact-inner textarea:-ms-input-placeholder {
+  color: var(--input_placeholder_color) !important;
+}
+
+@media (max-width: 767px) {
+
+  .contact-form .pxl-contact-inner .input-filled input,
+  .contact-form .pxl-contact-inner .input-filled textarea,
+  .contact-form .pxl-contact-inner .input-filled .pxl-select-higthlight,
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form .pxl-select-higthlight {
+    font-size: 12px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .contact-form .pxl-contact-inner input::placeholder,
+  .contact-form .pxl-contact-inner textarea::placeholder {
+    font-size: 12px !important;
+  }
+
+  .contact-form .pxl-contact-inner input::-webkit-input-placeholder,
+  .contact-form .pxl-contact-inner textarea::-webkit-input-placeholder {
+    font-size: 12px !important;
+  }
+
+  .contact-form .pxl-contact-inner input::-moz-placeholder,
+  .contact-form .pxl-contact-inner textarea::-moz-placeholder {
+    font-size: 12px !important;
+  }
+
+  .contact-form .pxl-contact-inner input:-ms-input-placeholder,
+  .contact-form .pxl-contact-inner textarea:-ms-input-placeholder {
+    font-size: 12px !important;
+  }
+}
+
+
 
 /* Contact Form Button Styling */
 .contact-form .btn.btn-primary,
@@ -275,9 +351,9 @@ body.single .pxl-breadcrumb li:not(:first-child):not(:last-child) {
 
 .contact-form .btn.btn-primary:hover,
 .contact-form .ct-button .btn:hover {
-  background-color: #fff !important;
-  color: #2A7DBA !important;
-  border: 1px solid #2A7DBA !important;
+  background-color: #1c1c1c !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
 }
 
 /* Blog Post Titles Styling - Regular blog grid items */
@@ -312,9 +388,19 @@ h4.pxl-post--title.title-hover-line:not(.blog-post-title) a,
   line-height: 1.5 !important;
   text-transform: capitalize !important;
 }
+
 .benifit .pxl-item--text .el-empty span,
 .benifit .pxl-item--text.el-empty span {
   font-size: 20px !important;
+}
+
+@media (max-width: 767px) {
+
+  .benifit .pxl-item--text .el-empty span,
+  .benifit .pxl-item--text.el-empty span {
+    font-size: 16px !important;
+  }
+
 }
 
 /* Button Hover Color */
@@ -352,7 +438,23 @@ h4.pxl-post--title.title-hover-line:not(.blog-post-title) a,
   color: #fff !important;
 }
 
+
+.pxl-button .btn:hover .pxl--btn-text,
+.pxl-button a.btn:hover .pxl--btn-text,
+.pxl-button .btn:hover .pxl--text-wrap,
+.pxl-button a.btn:hover .pxl--text-wrap,
+.pxl-button .btn:hover .pxl--btn-text1,
+.pxl-button a.btn:hover .pxl--btn-text1,
+.pxl-button .btn:hover .pxl--btn-text2,
+.pxl-button a.btn:hover .pxl--btn-text2 {
+  color: currentColor !important;
+}
+
 /* Meta Box Image Size Fix */
+.approach-grid .pxl-meta-inner {
+  padding: 0 !important;
+}
+
 .approach_icon .pxl-item--img,
 .approach_icon .pxl-item--img img {
   width: 70px !important;
@@ -364,21 +466,23 @@ h4.pxl-post--title.title-hover-line:not(.blog-post-title) a,
 
 
 .testimonial-img .pxl-item--image img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    display: block;
-    object-position: top;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  object-position: top;
 }
+
 .image-box .elementor-image-box-img img {
-     width: 70px !important;
+  width: 70px !important;
   max-width: 70px !important;
   object-fit: cover !important;
   display: block !important;
 }
+
 .services-solution img {
-    width: 70px !important;
+  width: 70px !important;
   max-width: 70px !important;
   object-fit: cover !important;
   display: block !important;
@@ -386,6 +490,102 @@ h4.pxl-post--title.title-hover-line:not(.blog-post-title) a,
 }
 
 /* Menu Primary Link Padding */
-.fr-style-default .pxl-menu-primary > li > a {
-    padding-bottom: 10px !important;
+.sub-menu {
+  padding: 0 !important;
 }
+
+.fr-style-default .pxl-menu-primary>li>a {
+  padding: 0px !important;
+}
+
+
+/* Editor */
+.pxl-text-editor p {
+  margin-bottom: 16px !important;
+}
+
+.pxl-text-editor *:last-child {
+  margin-bottom: 0 !important;
+}
+
+
+.e-con>.e-con-inner {
+  max-width: calc(1440px - 2*108px) !important;
+}
+
+/* Site Css */
+.transition-all .btn {
+  transition: all 0.5s;
+}
+
+@media (max-width: 767px) {
+
+  .btn-w-100 .btn {
+    width: 100%;
+  }
+}
+
+.grid-of-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+}
+
+@media (max-width: 767px) {
+  .grid-of-2 {
+    gap: 10px;
+  }
+}
+
+
+/* schedule */
+.modal p {
+  margin: 0 !important;
+}
+
+#schedule .modal-title {
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #1c1c1c;
+}
+
+#schedule .modal-body {
+  padding: 20px;
+}
+
+#schedule .ct-button p {
+  margin: 0 !important;
+}
+
+.wpcf7-not-valid-tip,
+.wpcf7-response-output {
+  border: 0 !important;
+  font-family: Poppins;
+  padding: 0 !important;
+}
+
+@media (max-width: 767px) {
+  #schedule .modal-title {
+    font-size: 24px;
+  }
+
+  #schedule .modal-body {
+    padding: 15px;
+  }
+}
+
+
+.pxl-meta-box2 .pxl-meta-inner {
+  padding: 20px !important;
+}
+.pxl-scroll-top.pxl-on{
+  text-decoration: none;
+}
+
+.pxl-swiper-wrapper { justify-content: center; }
+
+.elementor-widget-container .wow { visibility: visible !important; }
