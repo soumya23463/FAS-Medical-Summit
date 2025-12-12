@@ -588,4 +588,5 @@ h4.pxl-post--title.title-hover-line:not(.blog-post-title) a,
 
 .pxl-swiper-wrapper { justify-content: center; }
 
-.elementor-widget-container .wow { visibility: visible !important; }
+.elementor-widget-container .wow { visibility: visible !important; animation-name: none !important; }
+
