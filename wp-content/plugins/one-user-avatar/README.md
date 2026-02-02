@@ -378,6 +378,14 @@ This would output:
 
 ## Changelog
 
+### 2.5.4
+* Add compatibility for WordPress 6.9
+* Limit plugin tags to 5
+* Fix avatar class name
+
+### 2.5.1
+* Add compatibility for WordPress 6.8.2
+
 ### 2.5.0
 * Add compatibility for WordPress 6.6
 * Add support for retina avatars

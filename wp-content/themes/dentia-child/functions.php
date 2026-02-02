@@ -6,25 +6,42 @@
  */
 
 // Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
     exit;
 }
 
 /**
  * Enqueue parent and child theme styles
  */
-function dentia_child_enqueue_styles() {
-    // Enqueue parent theme stylesheet
-    wp_enqueue_style( 'dentia-parent-style', get_template_directory_uri() . '/style.css?v=10.1' );
 
-    // Enqueue child theme stylesheet
-    wp_enqueue_style( 'dentia-child-style',
-        get_stylesheet_directory_uri() . '/style.css?v=10.1',
-        array( 'dentia-parent-style' ),
+function dentia_child_enqueue_styles()
+{
+
+    // Parent theme stylesheet
+    wp_enqueue_style(
+        'dentia-parent-style',
+        get_template_directory_uri() . '/style.css?v=11.1'
+    );
+
+    // Child theme stylesheet
+    wp_enqueue_style(
+        'dentia-child-style',
+        get_stylesheet_directory_uri() . '/style.css?v=11.1',
+        array('dentia-parent-style'),
         wp_get_theme()->get('Version')
     );
+
+    // Child theme JS file
+    wp_enqueue_script(
+        'dentia-child-script',
+        get_stylesheet_directory_uri() . '/site-dentia.js',
+        array('jquery'), // remove if you don't use jQuery
+        wp_get_theme()->get('Version'),
+        true // loads in footer
+    );
 }
-add_action( 'wp_enqueue_scripts', 'dentia_child_enqueue_styles' );
+add_action('wp_enqueue_scripts', 'dentia_child_enqueue_styles');
+
 
 /**
  * Add your custom functions below this line
@@ -63,7 +80,8 @@ add_filter( 'dentia_breadcrumb_single', 'dentia_child_fix_breadcrumb_labels', 10
 */
 
 
-function show_current_year() {
+function show_current_year()
+{
     return date('Y');
 }
 add_shortcode('current_year', 'show_current_year');

@@ -16,6 +16,20 @@ Text Domain: dentia-child
 /* Write your custom CSS below this line */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p,
+a,
+li,
+div {
+  font-family: 'Poppins', sans-serif;
+}
+
 :root {
   --input_placeholder_color: rgba(0, 0, 0, 0.4);
 }
@@ -368,6 +382,19 @@ h4.pxl-post--title.title-hover-line:not(.blog-post-title) a,
   line-height: 1.4 !important;
 }
 
+@media (max-width: 767px) {
+
+  h4.pxl-post--title.title-hover-line:not(.blog-post-title),
+  h4.pxl-post--title.title-hover-line:not(.blog-post-title) a,
+  .pxl-post--title.title-hover-line:not(.blog-post-title),
+  .pxl-post--title.title-hover-line:not(.blog-post-title) a {
+    font-size: 20px !important;
+    display: inline-block !important;
+    padding-right: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
 /* Meta Box Styling */
 .approach .pxl-meta-inner .pxl-item-title,
 .approach .pxl-item-title {
@@ -491,7 +518,7 @@ h4.pxl-post--title.title-hover-line:not(.blog-post-title) a,
 
 /* Menu Primary Link Padding */
 .sub-menu {
-  padding: 0 !important;
+  padding: 10px 0 !important;
 }
 
 .fr-style-default .pxl-menu-primary>li>a {
@@ -582,11 +609,166 @@ h4.pxl-post--title.title-hover-line:not(.blog-post-title) a,
 .pxl-meta-box2 .pxl-meta-inner {
   padding: 20px !important;
 }
-.pxl-scroll-top.pxl-on{
+
+.pxl-scroll-top.pxl-on {
   text-decoration: none;
 }
 
-.pxl-swiper-wrapper { justify-content: center; }
+.pxl-swiper-wrapper {
+  justify-content: center;
+}
 
-.elementor-widget-container .wow { visibility: visible !important; animation-name: none !important; }
+.elementor-widget-container .wow {
+  visibility: visible !important;
+  animation-name: none !important;
+}
 
+.px-header--fixed.scroll-down {
+  top: -60px !important;
+}
+
+@media (max-width: 767px) {
+  .pxl-meta-box2 .pxl-meta-inner {
+    padding: 20px 0 !important;
+  }
+
+  .mob\:have_x-space .pxl-meta-inner {
+    padding: 20px !important;
+  }
+}
+
+/* Header */
+.pxl-menu-primary li.menu-item>a {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+@media (max-width: 1200px) {
+  .pxl-menu-primary li.menu-item>a {
+    text-decoration: none;
+  }
+
+  .pxl-header-elementor-main.px-header--fixed {
+    display: block !important;
+  }
+
+  #pxl-header-mobile {
+    margin-top: 50px;
+  }
+
+  .desk-header {
+    display: none;
+  }
+
+  /* .pxl-header-menu {
+    margin-top: 50px !important;
+    height: calc(100vh - 50px) !important;
+  } */
+
+  #pxl-header-default .pxl-header-branding,
+  #pxl-header-elementor .pxl-header-branding {
+    padding: 0 !important;
+  }
+
+  .pxl-logo-mobile img,
+  #pxl-header-elementor .pxl-header-branding img {
+    height: 50px !important;
+  }
+
+  /* Ham Menu Content */
+  .pxl-header-menu-scroll {
+    padding: 15px 0 0 3px !important;
+  }
+
+  .pxl-menu-close {
+    top: 22px !important;
+    right: 12px !important;
+  }
+
+  .pxl-menu-primary li.menu-item>a {
+    font-size: 18px !important;
+  }
+
+  .pxl-menu-primary .sub-menu li a,
+  .pxl-menu-primary .children li a {
+    font-size: 16px !important;
+
+  }
+
+
+
+}
+
+@media (max-width: 767px) {
+
+  #pxl-header-default .pxl-header-branding,
+  #pxl-header-elementor .pxl-header-branding {
+    padding: 0 !important;
+  }
+
+  .pxl-logo-mobile img,
+  #pxl-header-elementor .pxl-header-branding img {
+    height: 50px !important;
+  }
+
+  /* Ham Menu Content */
+  .pxl-header-menu-scroll {
+    padding: 15px 0 0 3px !important;
+  }
+
+  .pxl-menu-close {
+    top: 22px !important;
+    right: 12px !important;
+  }
+
+  #pxl-header-mobile {
+    /* margin-top: 85px; */
+    margin-top: 0;
+  }
+
+  /* .pxl-header-menu {
+    margin-top: 85px !important;
+    height: calc(100vh - 85px) !important;
+  } */
+
+  .pxl-header-elementor-main.px-header--fixed {
+    position: sticky !important;
+    top: -10px !important;
+  }
+}
+
+@media (max-width:1024px) {
+  .mob\:end_to_end {
+    --site-spacing: 15px;
+    margin-left: calc(-1 * var(--site-spacing)) !important;
+    width: calc(100% + 2*var(--site-spacing)) !important;
+    max-width: calc(100% + 2*var(--site-spacing)) !important;
+  }
+}
+
+@media (max-width:767px) {
+  .mob\:cta-w-full a {
+    width: 100% !important;
+  }
+
+  .mob\:no-x_spacing .pxl-item-inner {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+}
+
+.pxl-breadcrumb a {
+  text-decoration: none;
+}
+
+/* Testimonials */
+.pxl-testimonial-carousel2 .pxl-item--inner .pxl-item--title {
+  font-size: 18px !important;
+}
+
+/* recaptcha */
+.grecaptcha-badge {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}

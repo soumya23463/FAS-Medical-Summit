@@ -21,7 +21,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h1 class="modal-title fs-5" id="schedule_paprLabel">
-					Request A <span style="color: #2a7dba"> Consultation </span>
+					Request A Free<span style="color: #2a7dba"> Consultation </span>
 				</h1>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>

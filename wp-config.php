@@ -1,4 +1,7 @@
 <?php
+define( 'WP_CACHE', true );
+
+
 /**
  * The base configuration for WordPress
  *
@@ -18,8 +21,6 @@
  * @package WordPress
  */
 
-// ** Database settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
 define( 'DB_NAME', 'fas_medical_summit' );
 
 /** Database username */
@@ -71,7 +72,7 @@ define( 'NONCE_SALT',       'E2C`u1XO,/@5_l[^WZlc>f>HbT!]KPhpMli0)G-[7^*fdT0vpxk
  *
  * @link https://developer.wordpress.org/advanced-administration/wordpress/wp-config/#table-prefix
  */
-$table_prefix = 'wp_';
+$table_prefix = 'wp_1533b65bcd_';
 
 /**
  * For developers: WordPress debugging mode.
