@@ -121,7 +121,7 @@ function dentia_scripts() {
 
     /* Parallax Libs */
     wp_register_script( 'stellar-parallax', get_template_directory_uri() . '/assets/js/libs/stellar-parallax.min.js', array( 'jquery' ), '0.6.2', true );
-    wp_enqueue_script(
+    wp_register_script(
         'dentia-parallax-init',
         get_template_directory_uri() . '/assets/js/libs/pxl-parallax-init.js',
         array('jquery', 'stellar-parallax'),
@@ -129,21 +129,18 @@ function dentia_scripts() {
         true
     );
 
-    /* Nice Select */
-    wp_enqueue_script( 'nice-select', get_template_directory_uri() . '/assets/js/libs/nice-select.min.js', array( 'jquery' ), 'all', true );
+    /* Nice Select - DEFERRED: Only load when needed */
+    wp_register_script( 'nice-select', get_template_directory_uri() . '/assets/js/libs/nice-select.min.js', array( 'jquery' ), 'all', true );
 
     /* Icons Lib - CSS */
     wp_enqueue_style('flaticon', get_template_directory_uri() . '/assets/fonts/flaticon/css/flaticon.css' , array(), $dentia_version->get( 'Version' ));
+    /* NOTE: Removed caseicon.css - using flaticon only for consistency */
 
     /* Counter Effect */
     wp_register_script( 'pxl-counter-slide', get_template_directory_uri() . '/assets/js/libs/counter-slide.min.js', array( 'jquery' ), '1.0.0', true );
 
-    /* Scroll Effect */
-    wp_register_script( 'pxl-scroll', get_template_directory_uri() . '/assets/js/libs/scroll.min.js', array( 'jquery' ), '0.6.0', true );
-
     /* Parallax Scroll */
     wp_register_script( 'pxl-parallax-scroll', get_template_directory_uri() . '/assets/js/libs/parallax-scroll.js', array( 'jquery' ), '1.0.0', true );
-    wp_register_script( 'pxl-easing', get_template_directory_uri() . '/assets/js/libs/easing.js', array( 'jquery' ), '1.3.0', true );
 
     /* Tweenmax */
     wp_register_script( 'pxl-tweenmax', get_template_directory_uri() . '/assets/js/libs/tweenmax.min.js', array( 'jquery' ), '2.1.2', true );
@@ -160,7 +157,7 @@ function dentia_scripts() {
     /* Direction Effect */
     wp_register_script('pxl-direction', get_template_directory_uri() . '/elements/widgets/js/direction.js', array('jquery'), '1.0.0', true);
 
-    wp_enqueue_style( 'pxl-caseicon', get_template_directory_uri() . '/assets/css/caseicon.css', array(), $dentia_version->get( 'Version' ) );
+    /* REMOVED: caseicon.css - using flaticon instead (50KB saved) */
     wp_enqueue_style( 'pxl-grid', get_template_directory_uri() . '/assets/css/grid.css', array(), $dentia_version->get( 'Version' ) );
     wp_enqueue_style( 'pxl-style', get_template_directory_uri() . '/assets/css/style.css', array(), $dentia_version->get( 'Version' ) );
     wp_add_inline_style( 'pxl-style', dentia_inline_styles() );
