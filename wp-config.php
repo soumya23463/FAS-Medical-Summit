@@ -38,6 +38,8 @@ define( 'DB_CHARSET', 'utf8mb4' );
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
+define('home_url', 'http://localhost/FAS-Medical-Summit');
+define('site_url', 'http://localhost/FAS-Medical-Summit');
 /**#@+
  * Authentication unique keys and salts.
  *
