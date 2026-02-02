@@ -271,11 +271,8 @@ function add_single_entry() {
 
     // Specialities
     if ($post_type === 'speciality') {
-        // Try to get archive link, fallback to home URL with path
-        $archive_link = get_post_type_archive_link('speciality');
-        if (!$archive_link) {
-            $archive_link = home_url('/specialities/');
-        }
+        // Use the main specialities page URL
+        $archive_link = home_url('/specialities/');
 
         // Add the Specialities breadcrumb with URL FIRST
         $this->add_entry('Specialities', $archive_link);
@@ -287,11 +284,8 @@ function add_single_entry() {
 
     // Services
     if ($post_type === 'service') {
-        // Try to get archive link, fallback to home URL with path
-        $archive_link = get_post_type_archive_link('service');
-        if (!$archive_link) {
-            $archive_link = home_url('/all-services/');
-        }
+        // Use the main services page URL
+        $archive_link = home_url('/services/');
 
         // Add the Services breadcrumb with URL FIRST
         $this->add_entry('Services', $archive_link);

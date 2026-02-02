@@ -15,11 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function dentia_child_enqueue_styles() {
     // Enqueue parent theme stylesheet
-    wp_enqueue_style( 'dentia-parent-style', get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'dentia-parent-style', get_template_directory_uri() . '/style.css?v=10.1' );
 
     // Enqueue child theme stylesheet
     wp_enqueue_style( 'dentia-child-style',
-        get_stylesheet_directory_uri() . '/style.css',
+        get_stylesheet_directory_uri() . '/style.css?v=10.1',
         array( 'dentia-parent-style' ),
         wp_get_theme()->get('Version')
     );
