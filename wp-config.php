@@ -21,16 +21,18 @@ define( 'WP_CACHE', true );
  * @package WordPress
  */
 
-define( 'DB_NAME', 'fas_medical_summit' );
+// ** Database settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'u244126350_fas_msrcm' );
 
 /** Database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'u244126350_as_admin' );
 
 /** Database password */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'O>C04bF[l02<' );
 
 /** Database hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', '127.0.0.1' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
@@ -38,8 +40,8 @@ define( 'DB_CHARSET', 'utf8mb4' );
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
-define('home_url', 'http://localhost/FAS-Medical-Summit');
-define('site_url', 'http://localhost/FAS-Medical-Summit');
+define( 'WP_HOME', 'https://fasmedicalsummitrcm.com/' );
+define( 'WP_SITEURL', 'https://fasmedicalsummitrcm.com/' );
 /**#@+
  * Authentication unique keys and salts.
  *
