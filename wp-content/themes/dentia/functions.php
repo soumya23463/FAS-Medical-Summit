@@ -20,6 +20,8 @@ if ( is_admin() ){
 /**
  * Theme Require
 */
+require_once get_template_directory() . '/inc/element-scripts.php';
+require_once get_template_directory() . '/inc/minify-assets.php';
 dentia()->require_folder('inc');
 dentia()->require_folder('inc/classes');
 dentia()->require_folder('inc/theme-options');

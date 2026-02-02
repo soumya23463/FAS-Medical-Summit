@@ -102,7 +102,7 @@ function dentia_widgets_position() {
  * Enqueue Styles Scripts : Front-End
  */
 add_action( 'wp_enqueue_scripts', 'dentia_scripts' );
-function dentia_scripts() {  
+function dentia_scripts() {
     $dentia_version = wp_get_theme( get_template() );
 
     /* Popup Libs */
@@ -113,52 +113,14 @@ function dentia_scripts() {
     wp_enqueue_style('wow-animate', get_template_directory_uri() . '/assets/css/libs/animate.min.css', array(), '1.1.0');
     wp_enqueue_script( 'wow-animate', get_template_directory_uri() . '/assets/js/libs/wow.min.js', array( 'jquery' ), '1.0.0', true );
 
-    /* Particles Background Libs */
-    wp_register_script( 'particles-background', get_template_directory_uri() . '/assets/js/libs/particles.min.js', array( 'jquery' ), '1.1.0', true );
-
-    /* Parallax Image */
-    wp_register_script( 'tilt', get_template_directory_uri() . '/assets/js/libs/tilt.min.js', array( 'jquery' ), '1.0.0', true );
-
-    /* Parallax Libs */
-    wp_register_script( 'stellar-parallax', get_template_directory_uri() . '/assets/js/libs/stellar-parallax.min.js', array( 'jquery' ), '0.6.2', true );
-    wp_enqueue_script(
-        'dentia-parallax-init',
-        get_template_directory_uri() . '/assets/js/libs/pxl-parallax-init.js',
-        array('jquery', 'stellar-parallax'),
-        null,
-        true
-    );
-
     /* Nice Select */
     wp_enqueue_script( 'nice-select', get_template_directory_uri() . '/assets/js/libs/nice-select.min.js', array( 'jquery' ), 'all', true );
 
     /* Icons Lib - CSS */
     wp_enqueue_style('flaticon', get_template_directory_uri() . '/assets/fonts/flaticon/css/flaticon.css' , array(), $dentia_version->get( 'Version' ));
 
-    /* Counter Effect */
-    wp_register_script( 'pxl-counter-slide', get_template_directory_uri() . '/assets/js/libs/counter-slide.min.js', array( 'jquery' ), '1.0.0', true );
-
-    /* Scroll Effect */
-    wp_register_script( 'pxl-scroll', get_template_directory_uri() . '/assets/js/libs/scroll.min.js', array( 'jquery' ), '0.6.0', true );
-
-    /* Parallax Scroll */
-    wp_register_script( 'pxl-parallax-scroll', get_template_directory_uri() . '/assets/js/libs/parallax-scroll.js', array( 'jquery' ), '1.0.0', true );
-    wp_register_script( 'pxl-easing', get_template_directory_uri() . '/assets/js/libs/easing.js', array( 'jquery' ), '1.3.0', true );
-
-    /* Tweenmax */
-    wp_register_script( 'pxl-tweenmax', get_template_directory_uri() . '/assets/js/libs/tweenmax.min.js', array( 'jquery' ), '2.1.2', true );
-    
-    /* Parallax Move Mouse */
-    wp_register_script( 'pxl-parallax-move-mouse', get_template_directory_uri() . '/assets/js/libs/parallax-move-mouse.js', array( 'jquery' ), '1.0.0', true );
-
     /* Woocommerce */
     wp_enqueue_script( 'pxl-woocommerce', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', array( 'jquery' ), $dentia_version->get( 'Version' ), true );
-
-    /* Cookie */
-    wp_register_script( 'pxl-cookie', get_template_directory_uri() . '/assets/js/libs/cookie.js', array( 'jquery' ), '1.4.1', true );
-
-    /* Direction Effect */
-    wp_register_script('pxl-direction', get_template_directory_uri() . '/elements/widgets/js/direction.js', array('jquery'), '1.0.0', true);
 
     wp_enqueue_style( 'pxl-caseicon', get_template_directory_uri() . '/assets/css/caseicon.css', array(), $dentia_version->get( 'Version' ) );
     wp_enqueue_style( 'pxl-grid', get_template_directory_uri() . '/assets/css/grid.css', array(), $dentia_version->get( 'Version' ) );
@@ -168,6 +130,7 @@ function dentia_scripts() {
     wp_enqueue_style( 'pxl-google-fonts', dentia_fonts_url(), array(), null );
     wp_enqueue_script( 'pxl-main', get_template_directory_uri() . '/assets/js/theme.js', array( 'jquery' ), $dentia_version->get( 'Version' ), true );
     wp_localize_script( 'pxl-main', 'main_data', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }

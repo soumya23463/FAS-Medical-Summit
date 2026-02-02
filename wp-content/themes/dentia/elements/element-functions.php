@@ -1,41 +1,11 @@
 <?php 
 
 /**
- * Swipper Lib
-*/
-if(!function_exists('dentia_elements_scripts')){
-    add_action( 'wp_enqueue_scripts', 'dentia_elements_scripts');
-    function dentia_elements_scripts() {  
-        $theme = wp_get_theme( get_template() );
-        wp_register_script( 'gsap', get_template_directory_uri() . '/assets/js/libs/gsap.min.js', array( 'jquery' ), '3.5.0', true );
-        wp_register_script( 'pxl-scroll-trigger', get_template_directory_uri() . '/assets/js/libs/scroll-trigger.js', array( 'jquery' ), '3.10.5', true );
-        wp_register_script( 'pxl-draggable', get_template_directory_uri() . '/assets/js/libs/draggable.min.js', array( 'jquery' ), '3.12.2', true );
-        wp_register_script('pxl-clickText', get_template_directory_uri() . '/assets/js/libs/click-text.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-        wp_register_script( 'pxl-bundled-lenis', get_template_directory_uri() . '/assets/js/libs/bundled-lenis.min.js', array( 'jquery' ), '1.0.0', true );
-        wp_register_script( 'pxl-nice-scroll', get_template_directory_uri() . '/assets/js/libs/nice-scroll.min.js', array( 'jquery' ), '3.7.6', true );
-
-        wp_register_script('dentia-particle', get_template_directory_uri() . '/elements/widgets/js/particle.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-        wp_register_script('dentia-parallax', get_template_directory_uri() . '/elements/widgets/js/parallax.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-        wp_register_script('pxl-post-grid', get_template_directory_uri() . '/elements/widgets/js/grid.js', [ 'isotope', 'jquery' ], $theme->get( 'Version' ), true);
-        wp_localize_script('pxl-post-grid', 'main_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-        wp_register_script('pxl-swiper', get_template_directory_uri() . '/elements/widgets/js/carousel.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-        wp_register_script('pxl-slick', get_template_directory_uri() . '/elements/widgets/js/slick.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-        wp_register_script('dentia-counter', get_template_directory_uri() . '/elements/widgets/js/counter.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-        wp_register_script('dentia-accordion', get_template_directory_uri() . '/elements/widgets/js/accordion.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-        wp_register_script('dentia-tabs', get_template_directory_uri() . '/elements/widgets/js/tabs.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-        wp_register_script('dentia-progressbar', get_template_directory_uri() . '/elements/widgets/js/progressbar.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-        wp_register_script('dentia-countdown', get_template_directory_uri() . '/elements/widgets/js/countdown.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-        wp_register_script('pxl-pie-chart', get_template_directory_uri() . '/assets/js/libs/pie-chart.min.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-        wp_register_script('dentia-pie-chart', get_template_directory_uri() . '/elements/widgets/js/pie-chart.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-        wp_enqueue_script('dentia-elementor', get_template_directory_uri() . '/elements/widgets/js/elementor.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-
-        wp_register_script('dentia-postclick', get_template_directory_uri() . '/elements/widgets/js/postclick.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-
-        wp_register_script( 'lenismin', get_template_directory_uri() . '/assets/js/libs/lenis.min.js', array( 'jquery' ), '1.0.0', true );
-
-        wp_register_script( 'pxl-ScrollToPlugin', get_template_directory_uri() . '/assets/js/libs/scroll-toplpugin.js', array( 'jquery' ), '3.10.5', true );
-    }
-}
+ * Script registrations and conditional enqueuing have been consolidated
+ * into /inc/element-scripts.php for better performance and maintainability.
+ * All element scripts are registered there and conditionally loaded based
+ * on page content to reduce unnecessary script loading.
+ */
 
 /**
  * Extra Elementor Icons

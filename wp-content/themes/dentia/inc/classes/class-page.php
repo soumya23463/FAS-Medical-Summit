@@ -54,8 +54,9 @@ if (!class_exists('dentia_Page')) {
                 </div>
                 <?php 
             } else {
-                $ptitle_breadcrumb_on = dentia()->get_opt( 'ptitle_breadcrumb_on', '1' ); 
-                wp_enqueue_script('stellar-parallax'); ?>
+                $ptitle_breadcrumb_on = dentia()->get_opt( 'ptitle_breadcrumb_on', '1' );
+                wp_enqueue_script('stellar-parallax');
+                wp_enqueue_script('dentia-parallax-init'); ?>
                 <div id="pxl-page-title-default" class="pxl--parallax" data-stellar-background-ratio="0.5">
                     <div class="container">
                         <div class="row">
